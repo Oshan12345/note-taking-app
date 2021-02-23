@@ -9,6 +9,7 @@ class NoteTemplate {
   }
 }
 
+//function for saving note
 saveNoteButton.addEventListener("click", function () {
   let notesArray = [];
   const alertDiv = document.getElementById("alert-user");
@@ -41,6 +42,7 @@ saveNoteButton.addEventListener("click", function () {
   }
 });
 
+//function for displaying notes
 const showNotes = () => {
   const notesDiv = document.getElementById("display-notes");
   let notesArray = [];
@@ -94,21 +96,11 @@ const showNotes = () => {
 
 showNotes();
 
+//function for make notes editable
 function contentEdit(id) {
   const content = document.getElementById(id);
   content.setAttribute("contenteditable", "true");
 }
-
-// const deleteNote = (index) => {
-//   let notesArray = JSON.parse(localStorage.getItem("notes"));
-
-//   notesArray.splice(index, 1);
-
-//   localStorage.setItem("notes", JSON.stringify(notesArray));
-//   document.getElementById("display-notes").innerHTML = "";
-
-//   showNotes();
-// };
 
 const deleteNote = (index) => {
   deleteSingleNote(index);
@@ -148,6 +140,7 @@ document.getElementById("search-btn").addEventListener("click", (e) => {
   e.preventDefault();
 });
 
+//function for filtering notes on keyword input in search field..
 function inputChange(event) {
   const searchedKey = event.target.value.toLowerCase();
   filterNotes(searchedKey);
@@ -167,6 +160,7 @@ const filterNotes = (searchedKey) => {
   }
 };
 
+//function for deleting note
 function deleteSingleNote(index) {
   const confirmDiv = document.getElementById("confirm-delete" + index);
   confirmDiv.innerHTML = ` <p class="p-4">Are you sure to delete?</p>
@@ -183,6 +177,7 @@ function deleteSingleNote(index) {
   disableAllDeleteButtons(true);
 }
 
+//function for confirmation
 function confirmDelete(isTrue, index = 0) {
   const x = document.getElementById("confirm-delete" + index);
 
@@ -204,6 +199,7 @@ function confirmDelete(isTrue, index = 0) {
   }
 }
 
+// this function ensures that without pressing ok or cancle button , rest delete buttons will remain disabled.
 const disableAllDeleteButtons = (isTrue) => {
   const deleteButtons = document.getElementsByClassName("delete-btn");
   if (isTrue) {
