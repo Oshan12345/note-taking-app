@@ -4,4 +4,4 @@ A full functional note keeping app using local storage. One can edit title and b
 
 one can also search notes using search box if it is in the list using certain keywords....
 
-url: https://oshan12345.github.io/note-taking-app/
+url:  https://sagar-biswas1.github.io/note-taking-app/
